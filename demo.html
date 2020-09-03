@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>A Web Page</h1>
+<p id="demo">A Paragraph</p>
+<button type="button" onclick="myFunction()">Try it</button>
+<button type="button" onclick="alert(incremental())">Closure</button>
+<script>
+function myFunction() { 
+ document.getElementById("demo").innerHTML = "Paragraph changed.";
+<!-- Promise Chaining --> 
+new Promise(function(resolve, reject) {
+  setTimeout(() => resolve(1), 1000); // (Zone 1)
+  })
+  .then(function(result) { // (Zone 2)
+    alert(result); // 1
+    return result * 2;
+  })
+  .then(function(result) { // (Zone 3)
+    alert(result); // 2
+    return result * 2;
+  })
+  .then(function(result) {
+    alert(result); // 4
+    return result * 2;
+});
+<!-- End -->
+<!-- Promise -->
+<!-- In promises, we can only return ONE object. We cannot return multiple arguments in then. -->
+function getMoneyBack(money) {
+  return new Promise((resolve, reject) => {
+    if (typeof money !== 'number') {
+      reject(new Error('money is not a number'))
+    } else {
+      resolve(money)
+    }
+  })
+}
+
+getMoneyBack(1200).then((money) => {
+  console.log(money)
+})
+<!-- End -->
+}
+
+<!-- Closure -->
+var incremental = (function(){ //Anonymose Outer Functions
+	var count = 0; //Outer Variable
+	return function(){ //Inner Functions
+		return ++count; //Outer Variable Access and Increment
+	}
+})();
+
+</script>
+
+</body>
+</html>

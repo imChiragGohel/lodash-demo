@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+// @import "~bootstrap/scss/functions";
+// @import "~bootstrap/scss/variables";
+// or
+// @import "~bootstrap/scss/bootstrap";
+// // then import toastr scss
+// @import "~ngx-toastr/toastr-bs4-alert.scss";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~ngx-toastr/toastr-bs4-alert";
+
+$primary: #20a8d8;
+$success: #4dbd74;
+
+body {
+    background-color: #e4e5e6;
+}
+
+.bg-primary {
+    background-color: $primary !important;
+}
+.btn-primary {
+    background-color: $primary !important;
+    border-color: $primary !important;
+}
+
+i.fa.fa-map-marker {
+    color: $primary;
+}
+i.fa.fa-paper-plane {
+    color: $success;
+}
+
+.title-number {
+    color: #a2a2a2;
+}
+
+.padding-box {
+    padding: 15px;
+}
+
+.truck-item-mainbox {
+    background-color: #fff;
+    border-radius: 10px;
+}
